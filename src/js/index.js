@@ -1,6 +1,5 @@
 import "../../icons/svgxuse";
+import Card from "./Card";
 
-import Module from "./Module";
-
-console.log("testje");
-console.log(Module());
+new Card("div.grid", "truck");
+new Card("div.grid", "earth");
