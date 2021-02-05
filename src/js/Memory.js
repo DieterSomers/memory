@@ -13,7 +13,9 @@ export default class Memory {
   }
 
   genHTML() {
-    document.body.insertAdjacentHTML("afterbegin", `<div class="grid"></div>`);
+    document
+      .querySelector(".game")
+      .insertAdjacentHTML("afterbegin", `<div class="grid"></div>`);
     return document.querySelector(".grid");
   }
 
@@ -76,7 +78,7 @@ export default class Memory {
   };
 
   toNextLvl = () => {
-    document.body.innerHTML = "";
+    document.querySelector(".game").innerHTML = "";
     this._lvl++;
     this._turned = 0;
     this.startLvl();
