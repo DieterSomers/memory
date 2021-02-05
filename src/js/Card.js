@@ -3,11 +3,13 @@ export default class Card {
     this._holder = holder;
     this._icon = icon;
     this._ref = this.genHTML();
+    this._flipEvent = new CustomEvent("flip", { detail: this });
+    this._flipped = false;
     this.setUpEvents();
   }
 
   genHTML() {
-    document.querySelector(this._holder).insertAdjacentHTML(
+    this._holder.insertAdjacentHTML(
       "beforeend",
       `<div class="card">
           <div class="flipper">
@@ -28,6 +30,23 @@ export default class Card {
   }
 
   flip = () => {
-    this._ref.classList.toggle("flipped");
+    if (!this._flipped) {
+      this._ref.classList.add("flipped");
+      dispatchEvent(this._flipEvent);
+      this._flipped = true;
+    }
+  };
+
+  unFlip = () => {
+    setTimeout(() => {
+      this._ref.classList.remove("flipped");
+      this._flipped = false;
+    }, 2000);
+  };
+
+  block = () => {
+    setTimeout(() => {
+      this._ref.style.opacity = 0.2;
+    }, 2000);
   };
 }

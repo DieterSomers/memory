@@ -6,19 +6,23 @@
 @import "../../icons/style";
 
 body {
-  background-color: grey;
+  background-color: darkslategrey;
 }
 .grid {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  margin: 50px auto;
+  max-width: 1200px;
 
   .card {
-    height: 250px;
-    width: 200px;
+    height: 175px;
+    width: 125px;
     text-align: center;
-    line-height: 250px;
+    line-height: 175px;
     font-size: 75px;
     margin: 10px;
+    transition: opacity 0.5s;
 
     perspective: 1000px;
 
@@ -51,4 +55,14 @@ body {
       transform: rotateY(180deg);
     }
   }
+}
+
+.nextLvl {
+  margin-top: 50px;
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+  background-color: cyan;
+  border-radius: 5px;
+  margin: 0 auto;
 }
